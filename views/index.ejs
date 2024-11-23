@@ -1,0 +1,27 @@
+<% layout('layouts/main-layout') %>
+
+<h1>Daftar Pasien</h1>
+<a href="/pasien/add" class="btn btn-primary">Tambah Pasien</a>
+<table class="table">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Nama</th>
+      <th>Alamat</th>
+      <th>Aksi</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% pasien.forEach((p) => { %>
+    <tr>
+      <td><%= p.id %></td>
+      <td><%= p.nama %></td>
+      <td><%= p.alamat %></td>
+      <td>
+        <a href="/pasien/edit/<%= p.id %>" class="btn btn-warning">Edit</a>
+        <a href="/pasien/delete/<%= p.id %>" class="btn btn-danger" onclick="return confirm('Yakin ingin menghapus?')">Hapus</a>
+      </td>
+    </tr>
+    <% }); %>
+  </tbody>
+</table>
